@@ -28,12 +28,4 @@ def neutralise(str1: str, str2: str) -> str:
         return "Strings must be of equal length"
     if len(str1) == 0:
         return ""
-    result: str = ''
-    for i in range(len(str1)):
-        if str1[i] == '+' and str2[i] == '+':
-            result += '+'
-        elif str1[i] == '-' and str2[i] == '-':
-            result += '-'
-        else:
-            result += '0'
-    return result
+    return ''.join('+' if i == j == '+' else '-' if i == j == '-' else '0' for i, j in zip(str1, str2))
